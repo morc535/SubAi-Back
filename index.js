@@ -1,18 +1,17 @@
 import express from "express";
-import router from "./routes/homeRouter.js";
+import authRouter from "./routes/authRouter.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const connectionString = process.env.CONNECTION_STRING;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(router);
+app.use("/auth", authRouter);
 
 app.get("/", function (req, res) {
   res.send("hi");
