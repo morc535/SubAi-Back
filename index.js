@@ -8,6 +8,8 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 const connectionString = process.env.CONNECTION_STRING;
 
+const app = express();
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
